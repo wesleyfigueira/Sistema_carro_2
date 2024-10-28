@@ -1,10 +1,4 @@
 {
-    "localiza": {
-        "login_locadora": "loca32",
-        "senha_locadora": "wesley",
-        "contato_locadora": "81987747247",
-        "endereco": "rua lima campos "
-    },
     "movida": {
         "login_locadora": "movi2",
         "codigo_locadora": "02",
