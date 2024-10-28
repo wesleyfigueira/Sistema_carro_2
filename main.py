@@ -220,18 +220,7 @@ def main():
                                     case 1:
                                         print("Chegou aqui")
                                         break
-                                        
-                                        match (escolha_adm):
-                                            
-                                            case 1:
-                                                novo_adm_user = input("Digite um nome de usuário: ")
-                                                novo_adm_senha = input("Digite uma senha: ")
-                                            
-                                            case 2:
-                                                
-
-                                            
-                                
+                                    
                                     case 2:
                                         while True:
                                             exibir_menu_adm_locadora()
