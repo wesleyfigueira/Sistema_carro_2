@@ -115,6 +115,29 @@ def listar_clientes():
             print("=" * 50)
 
 
+# Função para APAGAR os dados do Administrador   DELETE
+def apagar_adm():
+    apagar = input("Digite o nome do Administrador a ser apagado: ").strip()  # Remove espaços em branco
+
+    with open('dados_administradores.json', 'r') as apagar_dados:
+        data = json.load(apagar_dados)
+
+        # Normaliza os nomes no dicionário para comparação
+        nomes_normalizados = {nome.lower(): nome for nome in data.keys()}
+
+        # Verifica se o nome do administrador existe
+        nome_key = nomes_normalizados.get(apagar.lower())  # Usa .lower() para normalizar
+
+        if nome_key:
+            data.pop(nome_key)  # Remove o administrador
+            
+            # Salvar os dados atualizados no mesmo arquivo
+            with open('dados_administradores.json', 'w') as salvar_dados:
+                json.dump(data, salvar_dados, indent=4)  # Salva os dados atualizados
+                print("ADMINISTRADOR APAGADO COM SUCESSO")
+        else:
+            print(f"ADMINISTRADOR '{apagar}' não encontrado.")
+
 # Função para APAGAR  os dados do arquivo json1   DELETE
 def apagar_usuario():
     apagar = input("Digite o nome do Cliente a ser apagado: ").strip()  # Remove espaços em branco
