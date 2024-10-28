@@ -218,8 +218,8 @@ def main():
                                 match(entrada_adm2):
                                     
                                     case 1:
-                                        print("Chegou aqui")
-                                        break
+                                        escolha_adm = int(input('\n1 - ADICIONAR ADMINISTRADOR\n2 - EXCLUIR ADMINISTRADOR\n3 - LISTAR ADMINISTRADORES\n4 - ATUALIZAR ADMINISTRADOR'))
+                                        
                                     
                                     case 2:
                                         while True:
