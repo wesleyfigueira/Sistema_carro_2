@@ -248,6 +248,7 @@ def main():
                                                     os.system('cls')
                                                     salvar_dados(dados_locadoras, 'dados_locadora.json')
                                                     print(cor.VERDE+'LOCADORA CADASTRADA COM SUCESSO')
+                                                    print('Fig big aqui')
                                                     
                                                 case 2:
                                                     listar_locadora()
