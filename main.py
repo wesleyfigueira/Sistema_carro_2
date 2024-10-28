@@ -183,7 +183,7 @@ def exibir_menu():
 
 
 def main():
-    
+
     while True:
         
         menuPrincipal()
@@ -196,6 +196,7 @@ def main():
                 while True:
                   os.system('cls')
                   entrada_adm =int(input("\n|1 - ENTRAR NO SISTEMA\n|2 - VOLTAR\n"))
+                  os.system('cls')
                 
 
                     
@@ -210,14 +211,15 @@ def main():
                             print('------------------------------------------------')
                             
                             while True:
-                                menuPrincipal()
-                                entrada_inicial= int(input('\nDigite a opção desejada: '))
+                                print('\n1 - ADMINISTRADOR\n2 - LOCADORA\n3 - CLIENTE\n4 - SAIR')
+                                entrada_adm2= int(input('\nDigite a opção desejada: '))
                                 os.system('cls')
                                 
-                                match(entrada_inicial):
+                                match(entrada_adm2):
                                     
                                     case 1:
-                                        print("Chegou aqui")
+                                        escolha_adm = int(input('\n1 - ADICIONAR ADMINISTRADOR\n2 - EXCLUIR ADMINISTRADOR\n3 - LISTAR ADMINISTRADORES\n4 - ATUALIZAR ADMINISTRADOR'))
+
                                         break
                                     
                                     case 2:
