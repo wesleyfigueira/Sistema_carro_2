@@ -183,7 +183,7 @@ def exibir_menu():
 
 
 def main():
-    
+
     while True:
         
         menuPrincipal()
@@ -196,6 +196,7 @@ def main():
                 while True:
                   os.system('cls')
                   entrada_adm =int(input("\n|1 - ENTRAR NO SISTEMA\n|2 - VOLTAR\n"))
+                  os.system('cls')
                 
 
                     
@@ -210,14 +211,14 @@ def main():
                             print('------------------------------------------------')
                             
                             while True:
-                                menuPrincipal()
-                                entrada_inicial= int(input('\nDigite a opção desejada: '))
+                                print('\n1 - ADMINISTRADOR\n2 - LOCADORA\n3 - CLIENTE\n4 - SAIR')
+                                entrada_adm2= int(input('\nDigite a opção desejada: '))
                                 os.system('cls')
                                 
-                                match(entrada_inicial):
+                                match(entrada_adm2):
                                     
                                     case 1:
-                                        input("Entrou diga")
+                                        print("Chegou aqui")
                                         break
                                         
                                         match (escolha_adm):
@@ -266,7 +267,7 @@ def main():
                                                 
                                                     
                                                 case 3:
-                                                    print("ai dentro")
+                                                    
                                                     os.system('cls')
                                                     atualizar = input("Digite o nome do locadora a ser atualizado: ").strip()
     
@@ -303,8 +304,39 @@ def main():
                                                     else:
                                                         print(f"Locadora '{atualizar}' não encontrado.")
                                                     
+                                                case 4:
                                                     
-                                                    
+                                                    print("Chegou aqui")
+                                                    apagar = input("Digite o nome da locadora a ser apagado: ").strip()  # Remove espaços em branco
+
+                                                    with open('dados_locadora.json', 'r') as apagar_dados:
+                                                     data = json.load(apagar_dados)
+
+                                                     # Normaliza os nomes no dicionário para comparação
+                                                     nomes_normalizados = {nome.lower(): nome for nome in data.keys()}
+
+                                                      # Verifica se o nome do cliente existe
+                                                     nome_key = nomes_normalizados.get(apagar.lower())  # Usa .lower() para normalizar
+
+                                                     if nome_key:
+                                                       data.pop(nome_key)  # Remove o cliente
+            
+                                                        # Salvar os dados atualizados no mesmo arquivo
+                                                       with open('dados_locadora.json', 'w') as salvar_dados:
+                                                         json.dump(data, salvar_dados, indent=4)  # Salva os dados atualizados
+                                                       print("LOCADORA APAGADO COM SUCESSO")
+                                                     else:
+                                                          print(f"Cliente '{apagar}' não encontrado.")
+                                                        
+                                                 
+                                                case 5:
+                                                 os.system('cls')
+                                                 print('FEATURE EM DESENVOLVIMENTO')
+                                
+                                                case 6:
+                                                 os.system('cls')
+                                                 print('VOLTANDO AO MENU PRINCIPAL')
+                                                 break 
                                         
                                     
                                     case 3:
