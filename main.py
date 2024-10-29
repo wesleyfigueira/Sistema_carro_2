@@ -137,6 +137,79 @@ def listar_clientes():
             print("=" * 50)
 
 
+# Função para APAGAR os dados do Administrador   DELETE
+def apagar_adm():
+    apagar = input("Digite o nome do Administrador a ser apagado: ").strip()  # Remove espaços em branco
+
+    with open('dados_administradores.json', 'r') as apagar_dados:
+        data = json.load(apagar_dados)
+
+        # Normaliza os nomes no dicionário para comparação
+        nomes_normalizados = {nome.lower(): nome for nome in data.keys()}
+
+        # Verifica se o nome do administrador existe
+        nome_key = nomes_normalizados.get(apagar.lower())  # Usa .lower() para normalizar
+
+        if nome_key:
+            data.pop(nome_key)  # Remove o administrador
+            
+            # Salvar os dados atualizados no mesmo arquivo
+            with open('dados_administradores.json', 'w') as salvar_dados:
+                json.dump(data, salvar_dados, indent=4)  # Salva os dados atualizados
+                print("ADMINISTRADOR APAGADO COM SUCESSO")
+        else:
+            print(f"ADMINISTRADOR '{apagar}' não encontrado.")
+
+#Função ATUALIZAR ADMINISTRADOR
+def atualizar_administrador():
+    os.system('cls')
+    atualizar = input("Digite o usuário do administrador a ser atualizado: ").strip()
+    
+    with open('dados_administradores.json', 'r') as atualizar_administrador:
+        atualizacao = json.load(atualizar_administrador)
+        
+    # Normaliza os nomes no dicionário para comparação
+    nomes_normalizados = {nome.lower(): nome for nome in atualizacao.keys()}
+    
+    # Verifica se o nome do cliente existe
+    nome_key = nomes_normalizados.get(atualizar.lower())  # Usa .lower() para normalizar
+    
+    if nome_key:
+        print('Atualizar Dados do administrador')
+        nome_completo_adm = input('Digite seu nome completo atualizado: ')
+        senha_adm = input('Informe sua nova senha: ')
+        
+        
+        # Atualiza os dados do cliente
+        atualizacao[nome_key] = {
+            'nome': nome_completo_adm,
+            'senha': senha_adm,
+            
+        }
+        
+        # Salvar os dados no arquivo JSON
+        with open('dados_administradores.json', 'w') as salvar_dados:
+            json.dump(atualizacao, salvar_dados, indent=4)  # Salva os dados atualizados
+        
+        os.system('cls' if os.name == 'nt' else 'clear')  # Limpa a tela
+        print(f'Administrador {nome_key} atualizado com sucesso!')
+    else:
+        print(f"Administrador '{atualizar}' não encontrado.")
+
+#FUNÇÃO LISTAR ADMINISTRADORES
+def listar_administradores():
+    os.system('cls')
+    with open('dados_administradores.json') as meu_json:
+        dados =json.load(meu_json)
+
+        for nome, info in dados.items():
+            print("*" * 50)
+            print(f"Usuário: {nome}")
+            print("Dados:")
+            print(f"  Nome: {info['nome']}")
+            
+
+
 # Função para APAGAR  os dados do arquivo json1   DELETE
 def apagar_usuario():
     apagar = input("Digite o nome do Cliente a ser apagado: ").strip()  # Remove espaços em branco
@@ -159,7 +232,8 @@ def apagar_usuario():
                 print("CLIENTE APAGADO COM SUCESSO")
         else:
             print(f"Cliente '{apagar}' não encontrado.")
-            
+
+          # informaçoes de locadora
 
 def menu_locadora(user_loc):
     print(cor.VERDE+'------------------------------------------------')
@@ -205,7 +279,7 @@ def exibir_menu():
 
 
 def main():
-    
+
     while True:
         
         menuPrincipal()
@@ -218,6 +292,7 @@ def main():
                 while True:
                   os.system('cls')
                   entrada_adm =int(input("\n|1 - ENTRAR NO SISTEMA\n|2 - VOLTAR\n"))
+                  os.system('cls')
                 
 
                     
@@ -232,16 +307,42 @@ def main():
                             print('------------------------------------------------')
                             
                             while True:
-                                menuPrincipal()
-                                entrada_inicial= int(input('\nDigite a opção desejada: '))
+                                print('\n1 - ADMINISTRADOR\n2 - LOCADORA\n3 - CLIENTE\n4 - SAIR')
+                                entrada_adm2= int(input('\nDigite a opção desejada: '))
                                 os.system('cls')
                                 
-                                match(entrada_inicial):
+                                match(entrada_adm2):
                                     
                                     case 1:
-                                        print("Chegou aqui")
-                                        break
-                                    
+                                        escolha_adm = int(input('\n1 - ADICIONAR ADMINISTRADOR\n2 - EXCLUIR ADMINISTRADOR\n3 - ATUALIZAR ADMINISTRADOR\n4 - LISTAR ADMINISTRADORES\n5 - VOLTAR AO MENUR ANTERIOR\nDigite a opção desejada: '))
+
+                                        match escolha_adm:
+                                            case 1:
+                                                print("CADASTRO DE  ADMINISTRADOR")
+                                                usuario_adm =input("Digite o usuário do administrador que deseja ultilizar:  ")
+                                                nome_comple_adm =input("Digite o nome e sobrenome do Administrador:  ")
+                                                senha_adm =input("Digite senha do administrador:  ")
+                      
+                                                dados_adm[usuario_adm]={
+                                                    "nome":nome_comple_adm,
+                                                    "senha":senha_adm
+                                                }
+                                                os.system('cls')
+                                                with open('dados_administradores.json', 'w') as f:
+                                                    json.dump(dados_adm, f, indent=4)
+                                                    print("Dados salvos com sucesso!")
+
+                                                print(cor.VERDE+'CLIENTE CADASTRADO COM SUCESSO'),
+                                            
+                                            case 2:
+                                                apagar_adm()
+
+                                            case 3:
+                                                atualizar_administrador()
+
+                                            case 4:
+                                                listar_administradores()
+                                        
                                     case 2:
                                         while True:
                                             exibir_menu_adm_locadora()
@@ -274,15 +375,90 @@ def main():
                                                     
                                                 case 2:
                                                     listar_locadora()
+                                                
                                                     
+                                                case 3:
+                                                    
+                                                    os.system('cls')
+                                                    atualizar = input("Digite o nome do locadora a ser atualizado: ").strip()
+    
+                                                    with open('dados_locadora.json', 'r') as atualizar_locadora:
+                                                      atualizacao = json.load(atualizar_locadora)
+        
+                                                       # Normaliza os nomes no dicionário para comparação
+                                                    nomes_normalizados = {nome.lower(): nome for nome in atualizacao.keys()}
+    
+                                                        # Verifica se o nome do cliente existe
+                                                    nome_key = nomes_normalizados.get(atualizar.lower())  # Usa .lower() para normalizar
+    
+                                                    if nome_key:
+                                                       print('Atualizar Dados da locadora')
+                                                       login_locadora = input('Digite O novo login: ')
+                                                       senha_locadora= input('A nova Locadora: ')
+                                                       contato_locadora = input('Digite  o Contato: ')
+                                                       endereco_locadora = input('Digite o novo endereço locadora ')
+        
+                                                     # Atualiza os dados do cliente
+                                                       atualizacao[nome_key] = {
+                                                        'login_locadora': login_locadora,
+                                                        'senha_locadora': senha_locadora,
+                                                        'contato_locadora': contato_locadora,
+                                                        'endereco': endereco_locadora
+        }
+        
+                                                        # Salvar os dados no arquivo JSON
+                                                       with open('dados_locadora.json', 'w') as salvar_dados:
+                                                        json.dump(atualizacao, salvar_dados, indent=4)  # Salva os dados atualizados
+        
+                                                        os.system('cls' if os.name == 'nt' else 'clear')  # Limpa a tela
+                                                       print(f'Cliente {nome_key} atualizado com sucesso!')
+                                                    else:
+                                                        print(f"Locadora '{atualizar}' não encontrado.")
+                                                    
+                                                case 4:
+                                                    
+                                                    print("Chegou aqui")
+                                                    apagar = input("Digite o nome da locadora a ser apagado: ").strip()  # Remove espaços em branco
+
+                                                    with open('dados_locadora.json', 'r') as apagar_dados:
+                                                     data = json.load(apagar_dados)
+
+                                                     # Normaliza os nomes no dicionário para comparação
+                                                     nomes_normalizados = {nome.lower(): nome for nome in data.keys()}
+
+                                                      # Verifica se o nome do cliente existe
+                                                     nome_key = nomes_normalizados.get(apagar.lower())  # Usa .lower() para normalizar
+
+                                                     if nome_key:
+                                                       data.pop(nome_key)  # Remove o cliente
+            
+                                                        # Salvar os dados atualizados no mesmo arquivo
+                                                       with open('dados_locadora.json', 'w') as salvar_dados:
+                                                         json.dump(data, salvar_dados, indent=4)  # Salva os dados atualizados
+                                                       print("LOCADORA APAGADO COM SUCESSO")
+                                                     else:
+                                                          print(f"Cliente '{apagar}' não encontrado.")
+                                                        
+                                                 
+                                                case 5:
+                                                 os.system('cls')
+                                                 print('FEATURE EM DESENVOLVIMENTO')
+                                
+                                                case 6:
+                                                 os.system('cls')
+                                                 print('VOLTANDO AO MENU PRINCIPAL')
+                                                 break 
                                         
                                     
                                     case 3:
                                         while True:
+                                            
+                                            #MENU PRINCIPAL 
                                             exibir_menu()
                                             entrada_secundaria = int(input("Digite a Opção Desejada: "))
                                             
                                             match(entrada_secundaria):
+                                                #ADMINISTRADOR
                                                 case 1:
                                                     print('Cadastro de cliente')
                                                     nome_cliente = input('Digite seu nome e sobrenome: ')
@@ -341,7 +517,7 @@ def main():
             
             case 2:
                 while True:
-                    locadora_entrada= int(input("|1 - LOCADORA PARCEIRA \n|2 - CADASTRAR LOCADORA \n|3 - VOLTAR AO MENU ANTERIOR:  \n"))
+                    locadora_entrada= int(input("|1 - LOCADORA CADASTRADA \n|2 - CADASTRAR LOCADORA \n|3 - VOLTAR AO MENU ANTERIOR:  \n"))
                     
                     
                         
