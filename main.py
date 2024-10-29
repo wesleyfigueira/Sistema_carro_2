@@ -138,6 +138,56 @@ def apagar_adm():
         else:
             print(f"ADMINISTRADOR '{apagar}' não encontrado.")
 
+#Função ATUALIZAR ADMINISTRADOR
+def atualizar_administrador():
+    os.system('cls')
+    atualizar = input("Digite o usuário do administrador a ser atualizado: ").strip()
+    
+    with open('dados_administradores.json', 'r') as atualizar_administrador:
+        atualizacao = json.load(atualizar_administrador)
+        
+    # Normaliza os nomes no dicionário para comparação
+    nomes_normalizados = {nome.lower(): nome for nome in atualizacao.keys()}
+    
+    # Verifica se o nome do cliente existe
+    nome_key = nomes_normalizados.get(atualizar.lower())  # Usa .lower() para normalizar
+    
+    if nome_key:
+        print('Atualizar Dados do administrador')
+        nome_completo_adm = input('Digite seu nome completo atualizado: ')
+        senha_adm = input('Informe sua nova senha: ')
+        
+        
+        # Atualiza os dados do cliente
+        atualizacao[nome_key] = {
+            'nome': nome_completo_adm,
+            'senha': senha_adm,
+            
+        }
+        
+        # Salvar os dados no arquivo JSON
+        with open('dados_administradores.json', 'w') as salvar_dados:
+            json.dump(atualizacao, salvar_dados, indent=4)  # Salva os dados atualizados
+        
+        os.system('cls' if os.name == 'nt' else 'clear')  # Limpa a tela
+        print(f'Administrador {nome_key} atualizado com sucesso!')
+    else:
+        print(f"Administrador '{atualizar}' não encontrado.")
+
+#FUNÇÃO LISTAR ADMINISTRADORES
+def listar_administradores():
+    os.system('cls')
+    with open('dados_administradores.json') as meu_json:
+        dados =json.load(meu_json)
+
+        for nome, info in dados.items():
+            print("*" * 50)
+            print(f"Usuário: {nome}")
+            print("Dados:")
+            print(f"  Nome: {info['nome']}")
+            
+
+
 # Função para APAGAR  os dados do arquivo json1   DELETE
 def apagar_usuario():
     apagar = input("Digite o nome do Cliente a ser apagado: ").strip()  # Remove espaços em branco
@@ -241,9 +291,35 @@ def main():
                                 match(entrada_adm2):
                                     
                                     case 1:
-                                        escolha_adm = int(input('\n1 - ADICIONAR ADMINISTRADOR\n2 - EXCLUIR ADMINISTRADOR\n3 - LISTAR ADMINISTRADORES\n4 - ATUALIZAR ADMINISTRADOR'))
+                                        escolha_adm = int(input('\n1 - ADICIONAR ADMINISTRADOR\n2 - EXCLUIR ADMINISTRADOR\n3 - ATUALIZAR ADMINISTRADOR\n4 - LISTAR ADMINISTRADORES\n5 - VOLTAR AO MENUR ANTERIOR\nDigite a opção desejada: '))
+
+                                        match escolha_adm:
+                                            case 1:
+                                                print("CADASTRO DE  ADMINISTRADOR")
+                                                usuario_adm =input("Digite o usuário do administrador que deseja ultilizar:  ")
+                                                nome_comple_adm =input("Digite o nome e sobrenome do Administrador:  ")
+                                                senha_adm =input("Digite senha do administrador:  ")
+                      
+                                                dados_adm[usuario_adm]={
+                                                    "nome":nome_comple_adm,
+                                                    "senha":senha_adm
+                                                }
+                                                os.system('cls')
+                                                with open('dados_administradores.json', 'w') as f:
+                                                    json.dump(dados_adm, f, indent=4)
+                                                    print("Dados salvos com sucesso!")
+
+                                                print(cor.VERDE+'CLIENTE CADASTRADO COM SUCESSO'),
+                                            
+                                            case 2:
+                                                apagar_adm()
+
+                                            case 3:
+                                                atualizar_administrador()
+
+                                            case 4:
+                                                listar_administradores()
                                         
-                                    
                                     case 2:
                                         while True:
                                             exibir_menu_adm_locadora()

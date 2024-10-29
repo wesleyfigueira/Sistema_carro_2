@@ -8,7 +8,7 @@
         "senha": "12345"
     },
     "allan": {
-        "nome": "allan",
+        "nome": "allan souza filho",
         "senha": "12345"
     },
     "nino": {
@@ -30,5 +30,13 @@
     "gabriel": {
         "nome": "gabriel",
         "senha": "12345"
+    },
+    "neymar": {
+        "nome": "neymar",
+        "senha": "12345"
+    },
+    "tuanny": {
+        "nome": "tuanny aquino davila",
+        "senha": "106020"
     }
 }
