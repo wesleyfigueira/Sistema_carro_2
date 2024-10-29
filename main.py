@@ -160,7 +160,8 @@ def apagar_usuario():
                 print("CLIENTE APAGADO COM SUCESSO")
         else:
             print(f"Cliente '{apagar}' não encontrado.")
-            
+
+          # informaçoes de locadora
 
 def menu_locadora(user_loc):
     print(cor.VERDE+'------------------------------------------------')
