@@ -210,7 +210,8 @@ def apagar_usuario():
                 print("CLIENTE APAGADO COM SUCESSO")
         else:
             print(f"Cliente '{apagar}' não encontrado.")
-            
+
+          # informaçoes de locadora
 
 def menu_locadora(user_loc):
     print(cor.VERDE+'------------------------------------------------')
@@ -494,7 +495,7 @@ def main():
             
             case 2:
                 while True:
-                    locadora_entrada= int(input("|1 - LOCADORA PARCEIRA \n|2 - CADASTRAR LOCADORA \n|3 - VOLTAR AO MENU ANTERIOR:  \n"))
+                    locadora_entrada= int(input("|1 - LOCADORA CADASTRADA \n|2 - CADASTRAR LOCADORA \n|3 - VOLTAR AO MENU ANTERIOR:  \n"))
                     
                     
                         
