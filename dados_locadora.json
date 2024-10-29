@@ -19,5 +19,12 @@
         "senha_locadora": "12345",
         "contato_locadora": "81987445862",
         "endereco_locadora": "Avenida Dom Juan, 1054"
+    },
+    "SP car": {
+        "login_locadora": "spcar04",
+        "codigo_locadora": "04",
+        "senha_locadora": "12345",
+        "contato_locadora": "11975882644",
+        "endereco_locadora": "Av Paulista, 2054"
     }
 }

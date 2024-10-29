@@ -40,6 +40,28 @@ def listar_locadora():
             print(f"  Contato Locadora: {info['contato_locadora']}")
             print(f"  Endereço Locadora: {info['endereco_locadora']}")
             print("=" * 50)
+
+ #LISTA DE CARROS DE CADA LOCADORA
+def lista_carros():
+    os.system('cls')
+    with open('dados_carros.json') as meu_json:
+        dados =json.load(meu_json)
+        
+        for nome, info in dados.items():
+            print("*" * 50)
+            print(f"Nome: {nome}")
+            print("Dados:")
+            print(f"  marca do carro: {info['marca']}")
+            print(f"  cor do carro: {info['cor']}")
+            print("=" * 50)
+
+def menu_carros():
+    print(cor.VERDE+'------------------------------------------------')
+    print('| 1 - VER CARROS')
+    print('| 2 - ADICIONAR  CARROS')
+    print('| 3 - ATUALIZAR CARROS')
+    print('| 4 - VER CARROS')
+    print('------------------------------------------------')
             
             
             
@@ -248,7 +270,7 @@ def main():
                                                     os.system('cls')
                                                     salvar_dados(dados_locadoras, 'dados_locadora.json')
                                                     print(cor.VERDE+'LOCADORA CADASTRADA COM SUCESSO')
-                                                    print('Fig big aqui')
+                                                    
                                                     
                                                 case 2:
                                                     listar_locadora()
@@ -330,19 +352,43 @@ def main():
                      
                         if nome_locadora in dados_locadoras:
                            if dados_locadoras[nome_locadora]['senha_locadora']== senha:
+        
+            
+                            opc_carros = int(input('|1- LISTA DE CARROS \n|2- CADASTRAR NOVO CARRO \n|3- VOLTAR AO MENU ANTERIOR \n|4- VOLTAR AO MENU PRINCIPAL \n|5- ECERRAR O PROGRAMA'))
                             
-                            
-                            while True:
-                                menu_locadora(nome_locadora)
-                                break
-                            
-                            
-                            
-                            
-                            
-                        else:
-                         print(cor.VERMELHO+ "SENHA OU USUARIO INCORRETOS")
-                         break
+                            if (opc_carros == 1):
+                                lista_carros ()
+
+                            elif (opc_carros == 2):
+                                modelo = input ('Informe o modelo do carro: ')
+                                marca = input ('Informe a marca: ')
+                                tipo = input ('Informe o tipo (SUV, SEDAN, HATCH): ')
+                                ano = input ('Informe o ano do carro: ')
+                                cor = input ('Informe a cor do carro: ')
+
+                                dados_carros[modelo]={
+                                "marca": marca,
+                                "tipo": tipo,
+                                "ano": ano,
+                                "cor": cor
+                                }
+                                os.system('cls')
+                                salvar_dados(dados_carros, 'dados_carros.json')
+                                print(f'{modelo} CADASTRADO COM SUCESSO!') 
+                                
+                            elif (opc_carros == 3):
+                                menu_carros ()
+                            elif (opc_carros == 4):
+                                menuPrincipal ()
+                            elif (opc_carros == 5):
+                                print ('PROGRAMA ENCERRADO!')
+                                
+                                
+                                
+                                
+                            else:
+                                print(cor.VERMELHO+ "SENHA OU USUARIO INCORRETOS")
+                         
                             
                         
                         
@@ -372,7 +418,7 @@ def main():
                         
                     elif(locadora_entrada==3):
                         os.system("cls")
-                        print(cor.CIANO+"VOLTANDO AO MENU ANTERIOR!!!")
+                        print("VOLTANDO AO MENU ANTERIOR!!!")
                         break
                     else:
                         os.system('cls')
