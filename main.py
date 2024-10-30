@@ -251,6 +251,26 @@ def exibir_menu():
     print("4. EXCLUIR USUÁRIO")
     print("5. LISTAR UM USUÁRIO")
     print("6. VOLTAR AO MENU ANTERIOR")
+
+def cadastro_cliente():
+    print('Cadastro de cliente')
+    nome_cliente = input('Digite seu nome e sobrenome: ')
+    cpf_cliente = input('Digite seu CPF: ')
+    nascimento_cliente = input('Digite sua data de nascimento: ')
+    numero_cliente = input('Digite seu número para contato: ')
+    cnh_cliente = input('Digite o número de sua CNH: ')
+
+            # Adicionar novo cliente ao jsom
+    dados_clientes[nome_cliente] = {
+        'cpf': cpf_cliente,
+        'nascimento': nascimento_cliente,
+        'numero': numero_cliente,
+        'cnh': cnh_cliente
+            }
+         # Salvar os dados no arquivo json
+    salvar_dados(dados_clientes, 'dados_clientes.json')
+    print(f'Cliente {nome_cliente} cadastrado com sucesso!')
+
     
     
 
@@ -555,7 +575,30 @@ def main():
                         print(cor.VERMELHO+ "OPÇÃO INVALIDA")
                         
                             
-                            
+            case 3:
+                verificação_cliente = input('Você já é um cliente cadastrado? (s/n) ').lower()
+                os.system('cls')
+                if verificação_cliente == "s" :
+                    nome_cliente = input('Digite seu nome: ')
+                    os.system('cls')
+                    if nome_cliente in dados_clientes:
+                        print(f"Bem-vindo de volta, {nome_cliente}!\n")
+                        cpf_cliente = dados_clientes[nome_cliente]['cpf']
+                        print(f"Seu CPF: {cpf_cliente}\n")
+                else:
+                    print("Cliente não encontrado!\n")
+                    cadastro_cliente()
+                
+                print('1-Atualizar informações \n2-aluguel de carros\n')
+                decisao_03=int(input('digite a opçao desejada: '))
+                os.system('cls')
+
+                if decisao_03==1:
+                    atualizar_clientes()
+
+
+
+                      
                           
             case 4:
                 print(cor.VERDE+"ENCERRANDO PROGRAMA...")
