@@ -642,6 +642,11 @@ def main():
                 if decisao_03==1:
                     atualizar_clientes()
 
+                elif decisao_03==2:
+                    for locadora, dados in dados_locadoras.items():
+                        endereco_locadora = dados.get('endereco_locadora', 'Endereço não disponível')
+                        contato_locadora = dados.get('contato_locadora', 'Contato não disponível')
+                        print(f"Locadora: {locadora} - Endereço: {endereco_locadora} - Contato: {contato_locadora}")
 
 
                       
