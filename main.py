@@ -251,7 +251,7 @@ def menu_locadora(user_loc):
 dados_clientes = carregar_dados('dados_clientes.json')
 dados_adm = carregar_dados('dados_administradores.json')
 dados_locadoras = carregar_dados('dados_locadora.json')
-dados_carros = carregar_dados('carros.json')
+dados_carros = carregar_dados('dados_carros.json')
 
 
 #menu principal
