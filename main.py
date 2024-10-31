@@ -543,11 +543,14 @@ def main():
                         
                     if(locadora_entrada==1):
                         
-                        nome_locadora = input('Digite o nome da locadora: ')
-                        senha = input('Digite sua senha: ')
+                        nome_locadora = input('Digite o nome da locadora: \n')
+                        senha = input('Digite sua senha: \n').lower ()
                      
                         if nome_locadora in dados_locadoras:
                            if dados_locadoras[nome_locadora]['senha_locadora']== senha:
+                            print ('=' * 50)
+                            print (f'\nBem vindo {nome_locadora} !\n')
+                            print ('=' * 50)
         
             
                             opc_carros = int(input('|1- LISTA DE CARROS \n|2- CADASTRAR NOVO CARRO \n|3- VOLTAR AO MENU ANTERIOR \n|4- VOLTAR AO MENU PRINCIPAL \n|5- ECERRAR O PROGRAMA'))
@@ -562,12 +565,15 @@ def main():
                                 ano = input ('Informe o ano do carro: ')
                                 cor = input ('Informe a cor do carro: ')
 
+                                nome_locadora =+ modelo
+
                                 dados_carros[modelo]={
                                 "marca": marca,
                                 "tipo": tipo,
                                 "ano": ano,
                                 "cor": cor
                                 }
+                                
                                 os.system('cls')
                                 salvar_dados(dados_carros, 'dados_carros.json')
                                 print(f'{modelo} CADASTRADO COM SUCESSO!') 
