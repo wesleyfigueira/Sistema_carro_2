@@ -370,7 +370,7 @@ def main():
                                             
                                             match(entrada_secundaria):
                                                 case 1:
-                                                    print("chegou aqui ")
+                                                
                                                     print("CADASTRO DE  LOCADORA")
                                                     nome_locadora =input("Digite o nome da locadora:  ")
                                                     login_locadora =input("Digite o login da locadora:  ")
@@ -386,7 +386,7 @@ def main():
                                                     "codigo_locadora":codigo_locadora,
                                                     "senha_locadora":senha_locadora,
                                                     "contato_locadora":contato_locadora,
-                                                    "endereco_locadora":endereco_locadora
+                                                    "endereco_locadora":endereco_locadora,
                                                 }
                                                     os.system('cls')
                                                     salvar_dados(dados_locadoras, 'dados_locadora.json')
