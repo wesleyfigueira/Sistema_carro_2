@@ -1,20 +1,16 @@
 {
-    "Ana Lima": {
-        "cpf": "70384758741",
-        "nascimento": "28021996",
-        "numero": "81987940841",
-        "cnh": "547477"
+    "JS car": {
+        "login_locadora": "jscar01",
+        "codigo_locadora": "03",
+        "senha_locadora": "12345",
+        "contato_locadora": "81987445862",
+        "endereco_locadora": "Avenida Dom Juan, 1054"
     },
-    "Wesley Figueira": {
-        "cpf": "10339333413",
-        "nascimento": "25478877",
-        "numero": "65574",
-        "cnh": "65477"
-    },
-    "Victor Figueira": {
-        "cpf": "1234512345",
-        "nascimento": "11.12.2000",
-        "numero": "8190909090",
-        "cnh": "123234352"
+    "SP car": {
+        "login_locadora": "spcar04",
+        "codigo_locadora": "04",
+        "senha_locadora": "12345",
+        "contato_locadora": "11975882644",
+        "endereco_locadora": "Av Paulista, 2054"
     }
 }

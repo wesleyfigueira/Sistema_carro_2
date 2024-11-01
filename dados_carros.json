@@ -4,5 +4,24 @@
         "tipo": "hatch",
         "ano": "2018",
         "cor": "preto"
+    },
+    "Tiggo 7": {
+        "marca": "CAOA Chery",
+        "tipo": "SUV",
+        "ano": "2023",
+        "cor": "Azul"
+    },
+    "Versa": {
+        "marca": "Nissan",
+        "tipo": "Sedan",
+        "ano": "2016",
+        "cor": "Preto"
+    },
+    "movida": {
+        "modelo": "Creta",
+        "marca": "Hyundai",
+        "tipo": "SUV",
+        "ano": "2023",
+        "cor": "Prata"
     }
 }
