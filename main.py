@@ -352,8 +352,10 @@ def main():
                                                     json.dump(dados_adm, f, indent=4)
                                                     print("Dados salvos com sucesso!")
 
-                                                print(cor.VERDE+'CLIENTE CADASTRADO COM SUCESSO'),
-                                            
+                                                print('\n1 - ADMINISTRADOR\n2 - LOCADORA\n3 - CLIENTE\n4 - SAIR')
+                                                entrada_adm2= int(input('\nDigite a opção desejada: '))
+                                                os.system('cls')
+                                           
                                             case 2:
                                                 apagar_adm()
 
@@ -391,6 +393,9 @@ def main():
                                                     os.system('cls')
                                                     salvar_dados(dados_locadoras, 'dados_locadora.json')
                                                     print(cor.VERDE+'LOCADORA CADASTRADA COM SUCESSO')
+
+                                                    exibir_menu_adm_locadora()
+                                                    entrada_secundaria= int(input("Digite a opção desejada:  "))
                                                     
                                                     
                                                 case 2:
@@ -437,7 +442,7 @@ def main():
                                                     
                                                 case 4:
                                                     
-                                                    print("Chegou aqui")
+                                                    
                                                     apagar = input("Digite o nome da locadora a ser apagado: ").strip()  # Remove espaços em branco
 
                                                     with open('dados_locadora.json', 'r') as apagar_dados:
@@ -496,6 +501,9 @@ def main():
                                                     os.system('cls')
                                                     salvar_dados(dados_clientes, 'dados_clientes.json')
                                                     print(f'Cliente {nome_cliente} cadastrado com sucesso!')
+
+                                                    exibir_menu()
+                                                    entrada_secundaria = int(input("Digite a Opção Desejada: "))
                                                 
                                                 case 2:
                                                     os.system('cls')
@@ -657,6 +665,7 @@ def main():
             
             case __:
                 print(cor.VERMELHO+" OPÇÃO INVÁLIDA. TENTE NOVAMENTE!")
+                
                         
 
                         
