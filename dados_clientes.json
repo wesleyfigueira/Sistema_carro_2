@@ -12,5 +12,11 @@
         "senha_locadora": "12345",
         "contato_locadora": "11975882644",
         "endereco_locadora": "Av Paulista, 2054"
+    },
+    "Fabio Reis": {
+        "cpf": "4587754826",
+        "nascimento": "15/04/2002",
+        "numero": "81 954872216",
+        "cnh": "586477559"
     }
 }
