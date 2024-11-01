@@ -565,13 +565,12 @@ def main():
                                 ano = input ('Informe o ano do carro: ')
                                 cor = input ('Informe a cor do carro: ')
 
-                                nome_locadora =+ modelo
 
                                 dados_carros[modelo]={
-                                "marca": marca,
-                                "tipo": tipo,
-                                "ano": ano,
-                                "cor": cor
+                                    "marca": marca,
+                                    "tipo": tipo,
+                                    "ano": ano,
+                                    "cor": cor
                                 }
                                 
                                 os.system('cls')
@@ -615,12 +614,12 @@ def main():
                           "endereco_locadora":endereco_locadora
                       }
                         os.system('cls')
-                        salvar_dados(dados_locadoras, 'dados_locadora.json')
+                        (dados_locadoras, 'dados_locadora.json')
                         print(cor.VERDE+'LOCADORA CADASTRADA COM SUCESSO')
                         
                     elif(locadora_entrada==3):
                         os.system("cls")
-                        print("VOLTANDO AO MENU ANTERIOR!!!")
+                        menuPrincipal()
                         break
                     else:
                         os.system('cls')
@@ -670,6 +669,6 @@ def main():
     
     
 if __name__ == "__main__":
-    main()
+   main()
     
     
