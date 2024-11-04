@@ -537,7 +537,7 @@ def main():
             
             case 2:
                 while True:
-                    locadora_entrada= int(input("|1 - LOCADORA CADASTRADA \n|2 - CADASTRAR LOCADORA \n|3 - VOLTAR AO MENU ANTERIOR:  \n"))
+                    locadora_entrada= int(input("|1 - LOCADORA CADASTRADA \n|2 - CADASTRAR LOCADORA \n|3 - VOLTAR AO MENU ANTERIOR:  \n")).lower()
                     
                     
                         
@@ -550,7 +550,7 @@ def main():
                            if dados_locadoras[nome_locadora]['senha_locadora']== senha:
         
             
-                            opc_carros = int(input('|1- LISTA DE CARROS \n|2- CADASTRAR NOVO CARRO \n|3- VOLTAR AO MENU ANTERIOR \n|4- VOLTAR AO MENU PRINCIPAL \n|5- ECERRAR O PROGRAMA'))
+                            opc_carros = int(input('|1- LISTA DE CARROS \n|2- CADASTRAR NOVO CARRO \n|3- VOLTAR AO MENU ANTERIOR \n|4- VOLTAR AO MENU PRINCIPAL \n|5- ECERRAR O PROGRAMA')).lower()
                             
                             if (opc_carros == 1):
                                 lista_carros ()
@@ -669,6 +669,5 @@ def main():
     
     
 if __name__ == "__main__":
-    main()
-    
+    main ()
     
