@@ -667,7 +667,7 @@ def main():
 
                             # VOLTA AO MENU PRINCIPAL
                             elif (opc_carros == 5):
-                                menuPrincipal ()
+                                menuPrincipal()
 
                             # ENCERRAR PROGRAMA    
                             elif (opc_carros == 6):
@@ -712,7 +712,7 @@ def main():
                     
                     # VOLTAR AO MENU PRINCIPAL
                     elif (locadora_entrada == 5):
-                        menuPrincipal ()
+                        menuPrincipal()
                     
                     # ENCERRAR PROGRAMA
                     elif (locadora_entrada == 6):
