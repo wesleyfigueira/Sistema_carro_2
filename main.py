@@ -591,7 +591,7 @@ def main():
                                         print("VOLTANDO...")   
                                         break     
                      else:
-                         print(cor.VERMELHO+ "SENHA OU USUARIO INCORRETOS")
+                         print(cor.VERMELHO + "SENHA OU USUARIO INCORRETOS")
                          break
                          
                         
@@ -750,8 +750,15 @@ def main():
                         endereco_locadora = dados.get('endereco_locadora', 'Endereço não disponível')
                         contato_locadora = dados.get('contato_locadora', 'Contato não disponível')
                         print(f"Locadora: {locadora} - Endereço: {endereco_locadora} - Contato: {contato_locadora}")
-
-
+                    escolha_locadora=input('Qual a locadora de sua opção?')
+                    os.system('cls')
+                    for carro, dados in dados_carros.items():
+                        marca = dados.get('marca', 'Marca não disponível')
+                        ano = dados.get('ano', 'Ano não disponível')
+                        tipo = dados.get('tipo', 'Tipo não disponível')
+                        cor = dados.get('cor', 'Cor não disponível')
+                        print(f"Carro: {carro} - Marca: {marca} - Ano: {ano} - Tipo: {tipo} - Cor: {cor}")
+                        
                       
                           
             case 4:
