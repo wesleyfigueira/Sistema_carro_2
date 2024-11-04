@@ -23,5 +23,13 @@
         "tipo": "SUV",
         "ano": "2023",
         "cor": "Prata"
+    },
+    "JS car": {
+        "modelo": "Argo",
+        "marca": "Fiat",
+        "tipo": "Hatch",
+        "ano": "2020",
+        "cor": "Preto",
+        "valor": 200
     }
 }
