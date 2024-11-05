@@ -776,10 +776,10 @@ def main():
                         
         
     
-    
+print('Obrigado por ultilizar nosso')
     
     
 if __name__ == "__main__":
     main()
     
-    
+print('Obrigado por ultilizar nosso')
