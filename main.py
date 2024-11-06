@@ -26,7 +26,7 @@ def exibir_menu_adm_locadora():
 
 def menuLocadora ():
     print ('=' * 50)
-    print ("| 1 - LOCADORA CADASTRADA |\n| 2 - CADASTRAR LOCADORA |\n| 3 - LISTA DE LOCADORAS |\n| 4 - EXCLUIR LOCADORA |\n| 5 - VOLTAR AO MENU PRINCIPAL |\n| 6 - ENCERRA PROGRAMA |\n")
+    print ("| 1 - LOGIN LOCADORA |\n| 2 - CADASTRAR LOCADORA |\n| 3 - LISTA DE LOCADORAS |\n| 4 - VOLTAR AO MENU PRINCIPAL |\n| 5 - ENCERRA O PROGRAMA |\n")
 
 # CADASTRAR LOCADORA
 def salvar_locadora(dados_locadoras, arquivo):
@@ -83,17 +83,14 @@ def lista_carros():
             print("*" * 50)
             print(f"Nome: {nome}")
             print("Dados:")
-            print(f"  marca do carro: {info['marca']}")
+            print(f"  modelo do carro: {info['marca']}")
             print(f"  cor do carro: {info['cor']}")
             print("=" * 50)
 
 # MENU CARROS
 def menu_carros():
     print(cor.VERDE+'------------------------------------------------')
-    print('| 1 - VER CARROS')
-    print('| 2 - ADICIONAR  CARROS')
-    print('| 3 - ATUALIZAR CARROS')
-    print('| 4 - VER CARROS')
+    print ('| 1 - LISTA DE CARROS |\n| 2 - CADASTRAR NOVO CARRO |\n| 3 - EXCLUIR CARRO |\n| 4 - VOLTAR AO MENU ANTERIOR |\n| 5 - VOLTAR AO MENU PRINCIPAL |\n| 6 - ENCERRAR O PROGRAMA |\n')
     print('------------------------------------------------')
 
 # CADASTRAR CARROS
@@ -103,6 +100,7 @@ def salvar_carros(dados_carros, arquivo):
     print("Carro Cadastrado com sucesso!")
 
 # EXCLUIR CARROS
+def excluir_carros ():
     apagar = input("Digite o nome do carro a ser apagado: ").strip()  # Remove espaços em branco
 
     with open('dados_carros.json', 'r') as apagar_dados:
@@ -353,6 +351,15 @@ def cadastro_cliente():
     salvar_dados(dados_clientes, 'dados_clientes.json')
     print(f'Cliente {nome_cliente} cadastrado com sucesso!')
 
+def usuario_ou_senha_incorreto ():
+    print (cor.VERMELHO+ "LOGIN OU SENHA INCORRETO!")
+
+def opc_invalida ():
+    print (cor.VERMELHO+ 'OPÇÃO INVALIDA!')
+
+def encerra_programa ():
+    print (cor.VERDE+ 'ENCERRANDO PROGRAMA...')
+
     
     
 
@@ -591,7 +598,7 @@ def main():
                                         print("VOLTANDO...")   
                                         break     
                      else:
-                         print(cor.VERMELHO + "SENHA OU USUARIO INCORRETOS")
+                         usuario_ou_senha_incorreto ()
                          break
                          
                         
@@ -621,45 +628,44 @@ def main():
                            if dados_locadoras[nome_locadora]['senha_locadora']== senha:
                             print ('=' * 50)
                             print (f'\nBem vindo {nome_locadora} !\n')
-                            print ('=' * 50)
-
+                            print ('=' * 50) 
+                
                             # MENU CARROS
-                            print ('=' * 50)
-                            print ('| 1 - LISTA DE CARROS |\n| 2 - CADASTRAR NOVO CARRO |\n| 3 - EXCLUIR CARRO |\n| 4 - VOLTAR AO MENU ANTERIOR |\n| 5 - VOLTAR AO MENU PRINCIPAL |\n| 6 - ENCERRAR O PROGRAMA |\n')
+                            menu_carros ()
                             opc_carros = int(input('\nInforme a opção desejada: '))
                             os.system('cls')
                             print ('=' * 50)
 
                             # LISTA DE CARROS DE TODAS AS LOCADORAS
                             if (opc_carros == 1):
-                                lista_carros ()
+                               lista_carros ()
 
                             # CADASTRAMENTO DE CARROS
                             elif (opc_carros == 2):
-                                locadora_carro = input ('Informe a locadora proprietária: ')
-                                modelo = input ('Informe o modelo do carro: ')
-                                marca = input ('Informe a marca: ')
-                                tipo = input ('Informe o tipo (SUV, SEDAN, HATCH): ')
-                                ano = input ('Informe o ano do carro: ')
-                                cor = input ('Informe a cor do carro: ')
-                                valor = int(input('Informe o valor da diaria: '))
-
-
-                                dados_carros[locadora_carro]={
-                                    "modelo": modelo,
-                                    "marca": marca,
-                                    "tipo": tipo,
-                                    "ano": ano,
-                                    "cor": cor,
-                                    "valor": valor
-                                }
-                                os.system('cls')
-                                salvar_carros(dados_carros, 'dados_carros.json')
-                                print(f'{modelo} CADASTRADO COM SUCESSO!') 
+                               locadora_carro = input ('Informe a locadora proprietária: ')
+                               locadora_carro = nome_locadora
+                               modelo = input ('Informe o modelo do carro: ')
+                               marca = input ('Informe a marca: ')
+                               tipo = input ('Informe o tipo (SUV, SEDAN, HATCH): ')
+                               ano = input ('Informe o ano do carro: ')
+                               cor = input ('Informe a cor do carro: ')
+                               valor = int(input('Informe o valor da diaria: '))
+                               
+                               dados_carros[locadora_carro]={
+                                "modelo": modelo,
+                                "marca": marca,
+                                "tipo": tipo,
+                                "ano": ano,
+                                "cor": cor,
+                                "valor": valor,
+                            }
+                               os.system('cls')
+                               salvar_carros(dados_carros, 'dados_carros.json')
+                               print(f'{modelo} CADASTRADO COM SUCESSO!')
 
                             # EXCLUIR/ DELETAR CARROS   
                             elif (opc_carros == 3):
-                                print ('em construção')
+                               excluir_carros ()
 
                             # VOLTAR AO MENU LOCADORA
                             elif (opc_carros == 4):
@@ -671,15 +677,13 @@ def main():
 
                             # ENCERRAR PROGRAMA    
                             elif (opc_carros == 6):
-                                print ('Programa encerrado ...')
-                                break 
+                                encerra_programa ()
+                                
+                        else: 
+                            usuario_ou_senha_incorreto ()
+                            break
 
-                            # MENSAGEM DE OPÇÃO INVALIDA 
-                            else:
-                                print(cor.VERMELHO+ "SENHA OU USUARIO INCORRETOS")
-                         
                             
-                        
                     elif(locadora_entrada ==2):
                         
                             
@@ -706,22 +710,17 @@ def main():
                     elif(locadora_entrada == 3):
                         listar_locadora ()
                     
-                    # EXCLUIR LOCADORA
-                    elif (locadora_entrada == 4):
-                        apagar_locadora()
-                    
                     # VOLTAR AO MENU PRINCIPAL
-                    elif (locadora_entrada == 5):
-                        menuPrincipal()
+                    elif (locadora_entrada == 4):
+                        menuPrincipal ()
                     
                     # ENCERRAR PROGRAMA
-                    elif (locadora_entrada == 6):
+                    elif (locadora_entrada == 5):
                         print ('Programa encerrado...')
                         break
                     # OPÇÃO INVALIDA
                     else:
-                        os.system('cls')
-                        print(cor.VERMELHO+ "OPÇÃO INVALIDA")
+                        opc_invalida ()
                         
                             
             case 3:
@@ -762,11 +761,11 @@ def main():
                       
                           
             case 4:
-                print(cor.VERDE+"ENCERRANDO PROGRAMA...")
+                encerra_programa ()
                 break
             
             case __:
-                print(cor.VERMELHO+" OPÇÃO INVÁLIDA. TENTE NOVAMENTE!")
+                opc_invalida ()
                 
                         
 
