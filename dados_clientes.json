@@ -26,9 +26,16 @@
         "cnh": "3463684628"
     },
     "pedro soares": {
+<<<<<<< HEAD
         "cpf": "0983",
         "nascimento": "15/10/2003",
         "numero": "876",
         "cnh": "1511"
+=======
+        "cpf": "456",
+        "nascimento": "15/10/2003",
+        "numero": "123",
+        "cnh": "123"
+>>>>>>> 8b98355ce0828b38128d9b8aea2ec6c78ad0f7bf
     }
 }
