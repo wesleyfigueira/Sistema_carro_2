@@ -320,7 +320,7 @@ def exibir_menu():
     print("6. VOLTAR AO MENU ANTERIOR")
 
 def cadastro_cliente():
-<<<<<<< HEAD
+
     print('Cadastro de cliente')
     nome_cliente = input('Digite seu nome e sobrenome: ')
     cpf_cliente = input('Digite seu CPF: ')
@@ -348,9 +348,9 @@ def opc_invalida ():
 def encerra_programa ():
     print (cor.VERDE+ 'ENCERRANDO PROGRAMA...')
 
-=======
+
     print("Bem-vindo ao sistema de cadastro!\n")
->>>>>>> 7717b67e16d3b0ed96dfbfe1fb477ab999b153ad
+
     
     
     nome_cliente = input("Digite seu nome completo: ").strip()
@@ -773,7 +773,7 @@ def main():
                                 print(cor.VERMELHO+ "SENHA OU USUARIO INCORRETOS")
                          
                             
->>>>>>> a7e185b5327cc9b7c9e202504d7a4c3fc7490dbf
+
                         
                         # VOLTAR AO MENU PRINCIPAL
                         elif (locadora_entrada == 4):
