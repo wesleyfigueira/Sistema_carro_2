@@ -1,6 +1,5 @@
 import json
 import os
-from datetime import datetime
 
 
 class cor:
@@ -193,10 +192,6 @@ def listar_clientes():
             print("=" * 50)
 
 
-
-
-
-
 # Função para APAGAR os dados do Administrador   DELETE
 def apagar_adm():
     apagar = input("Digite o nome do Administrador a ser apagado: ").strip()  # Remove espaços em branco
@@ -268,6 +263,8 @@ def listar_administradores():
             print("Dados:")
             print(f"  Nome: {info['nome']}")
             
+
+
 # Função para APAGAR  os dados do arquivo json1   DELETE
 def apagar_usuario():
     apagar = input("Digite o nome do Cliente a ser apagado: ").strip()  # Remove espaços em branco
@@ -320,7 +317,6 @@ def exibir_menu():
     print("6. VOLTAR AO MENU ANTERIOR")
 
 def cadastro_cliente():
-
     print('Cadastro de cliente')
     nome_cliente = input('Digite seu nome e sobrenome: ')
     cpf_cliente = input('Digite seu CPF: ')
@@ -348,37 +344,9 @@ def opc_invalida ():
 def encerra_programa ():
     print (cor.VERDE+ 'ENCERRANDO PROGRAMA...')
 
-
-    print("Bem-vindo ao sistema de cadastro!\n")
-
     
     
-    nome_cliente = input("Digite seu nome completo: ").strip()
-    cpf_cliente = input("Digite seu CPF (apenas números): ").strip()
-    nascimento_cliente = input("Digite sua data de nascimento (DD/MM/AAAA): ").strip()
-    numero_cliente = input("Digite seu número para contato: ").strip()
-    cnh_cliente = input("Digite o número de sua CNH (Caso tenha): ").strip()
-    
- 
-    if nome_cliente in dados_clientes:
-        print(f"O cliente {nome_cliente} já está cadastrado!")
-    else:
-       
-        dados_clientes[nome_cliente] = {
-            'cpf': cpf_cliente,
-            'nascimento': nascimento_cliente,
-            'numero': numero_cliente,
-            'cnh': cnh_cliente
-        }
-        salvar_dados(dados_clientes, 'dados_clientes.json')
-        print(f"\nCadastro realizado com sucesso!\nBem-vindo, {nome_cliente}!")   
 
-def calcular_dias(data_retirada, data_devolucao):
-    formato = "%d/%m/%Y"
-    data_retirada = datetime.strptime(data_retirada, formato)
-    data_devolucao = datetime.strptime(data_devolucao, formato)
-    dias = (data_devolucao - data_retirada).days
-    return dias
 
 
 def main():
@@ -633,6 +601,7 @@ def main():
                     locadora_entrada= int(input('Informe a opção desejada: '))
                     os.system('cls')
                     print ('=' * 50)
+                    
                     # CADASTRAR LOCADORA   
                     if(locadora_entrada==1):
                         
@@ -641,21 +610,21 @@ def main():
                         os.system('cls')
                         if nome_locadora in dados_locadoras:
                            if dados_locadoras[nome_locadora]['senha_locadora']== senha:
+                                print ('=' * 50)
+                                print (f'\nBem vindo {nome_locadora} !\n')
+                                print ('=' * 50) 
+                
+                                # MENU CARROS
+                                menu_carros ()
+                                opc_carros = int(input('\nInforme a opção desejada: '))
+                                print ('=' * 50)
 
-                            menu_carros ()
-                            opc_carros = int(input('\nEscolha uma das opções acima: ')) 
-                            print ('=' * 50)
-                            print (f'\nBem vindo {nome_locadora} !\n')
-                            print ('=' * 50)
-
-
-                            # LISTA DE CARROS DE TODAS AS LOCADORAS
-
-                            if (opc_carros == 1):
-                                lista_carros ()
+                                # LISTA DE CARROS DE TODAS AS LOCADORAS
+                                if (opc_carros == 1):
+                                   lista_carros()
 
                                 # CADASTRAMENTO DE CARROS
-                            elif (opc_carros == 2):
+                                elif (opc_carros == 2):
                                     modelo = input ('Informe o modelo do carro: ')
                                     marca = input ('Informe a marca: ')
                                     tipo = input ('Informe o tipo (SUV, SEDAN, HATCH): ')
@@ -677,111 +646,60 @@ def main():
                                 
 
                                 # EXCLUIR/ DELETAR CARROS   
-                            elif (opc_carros == 3):
+                                elif (opc_carros == 3):
                                     excluir_carros ()
 
                                 # VOLTAR AO MENU LOCADORA
-                            elif (opc_carros == 4):
+                                elif (opc_carros == 4):
                                     menuLocadora ()
                                     
                                 # VOLTA AO MENU PRINCIPAL
-                            elif (opc_carros == 5):
+                                elif (opc_carros == 5):
                                     menuPrincipal ()
 
                                 # ENCERRAR PROGRAMA    
-                            elif (opc_carros == 6):
+                                elif (opc_carros == 6):
                                     encerra_programa ()
                                     return
                                     
-                            else: 
-                                   usuario_ou_senha_incorreto()
+                                else: 
+                                   usuario_ou_senha_incorreto ()
                                    break
                                 
-                        elif(locadora_entrada == 2):
-                            print("CADASTRO DE  LOCADORA")
-                            nome_locadora =input("Digite o nome da locadora:  ")
-                            codigo_locadora =input("Digite o codigo de sua locadora:  ")
-                            senha_locadora =input("Digite senha da locadora:  ")
-                            contato_locadora =input("Digite o numero para contato:  ")
-                            endereco_locadora =input("Digite Endereço Locadora:  ")
+                    elif(locadora_entrada == 2):
+                        print("CADASTRO DE  LOCADORA")
+                        nome_locadora =input("Digite o nome da locadora:  ")
+                        codigo_locadora =input("Digite o codigo de sua locadora:  ")
+                        senha_locadora =input("Digite senha da locadora:  ")
+                        contato_locadora =input("Digite o numero para contato:  ")
+                        endereco_locadora =input("Digite Endereço Locadora:  ")
                         
-                            dados_locadoras[nome_locadora]={
-                            "codigo_locadora":codigo_locadora,
-                            "senha_locadora":senha_locadora,
-                            "contato_locadora":contato_locadora,
-                            "endereco_locadora":endereco_locadora
-                            }
-                            os.system('cls')
-                            salvar_locadora(dados_locadoras, 'dados_locadora.json')
-                            print (f'{nome_locadora} CADASTRADA COM SUCESSO!')
+                        dados_locadoras[nome_locadora]={
+                           "codigo_locadora":codigo_locadora,
+                           "senha_locadora":senha_locadora,
+                           "contato_locadora":contato_locadora,
+                           "endereco_locadora":endereco_locadora
+                        }
+                        os.system('cls')
+                        salvar_locadora(dados_locadoras, 'dados_locadora.json')
+                        print (f'{nome_locadora} CADASTRADA COM SUCESSO!')
 
                         # LISTA DAS LOCADORAS  
-                        elif(locadora_entrada == 3):
-                            listar_locadora ()
-                            # LISTA DE CARROS DE TODAS AS LOCADORAS
-
-                            if (opc_carros == 1):
-                                lista_carros ()
-
-                            # CADASTRAMENTO DE CARROS
-                            elif (opc_carros == 2):
-                                locadora_carro = input ('Informe a locadora proprietária: ')
-                                modelo = input ('Informe o modelo do carro: ')
-                                marca = input ('Informe a marca: ')
-                                tipo = input ('Informe o tipo (SUV, SEDAN, HATCH): ')
-                                ano = input ('Informe o ano do carro: ')
-                                cor = input ('Informe a cor do carro: ')
-                                valor = int(input('Informe o valor da diaria: '))
-
-
-                                dados_carros[locadora_carro]={
-                                    "modelo": modelo,
-                                    "marca": marca,
-                                    "tipo": tipo,
-                                    "ano": ano,
-                                    "cor": cor,
-                                    "valor": valor
-                                }
-                                os.system('cls')
-                                salvar_carros(dados_carros, 'dados_carros.json')
-                                print(f'{modelo} CADASTRADO COM SUCESSO!') 
-
-                            # EXCLUIR/ DELETAR CARROS   
-                            elif (opc_carros == 3):
-                                print ('em construção')
-
-                            # VOLTAR AO MENU LOCADORA
-                            elif (opc_carros == 4):
-                                menuLocadora ()
-
-                            # VOLTA AO MENU PRINCIPAL
-                            elif (opc_carros == 5):
-                                menuPrincipal()
-
-                            # ENCERRAR PROGRAMA    
-                            elif (opc_carros == 6):
-                                print ('Programa encerrado ...')
-                                break 
-
-                            # MENSAGEM DE OPÇÃO INVALIDA 
-                            else:
-                                print(cor.VERMELHO+ "SENHA OU USUARIO INCORRETOS")
-                         
-                            
-
+                    elif(locadora_entrada == 3):
+                        listar_locadora ()
                         
                         # VOLTAR AO MENU PRINCIPAL
-                        elif (locadora_entrada == 4):
-                            menuPrincipal ()
+                    elif (locadora_entrada == 4):
+                        menuPrincipal ()
                         
                         # ENCERRAR PROGRAMA
-                        elif (locadora_entrada == 5):
-                            encerra_programa ()
-                            return
+                    elif (locadora_entrada == 5):
+                        encerra_programa ()
+                        return
                         
                         # OPÇÃO INVALIDA
-                        else:
-                            opc_invalida ()
+                    else:
+                        opc_invalida ()
                         
                             
             case 3:
@@ -817,29 +735,8 @@ def main():
                         ano = dados.get('ano', 'Ano não disponível')
                         tipo = dados.get('tipo', 'Tipo não disponível')
                         cor = dados.get('cor', 'Cor não disponível')
-                        valor= dados.get('valor', 'Valor não disponivel')
-                        print(f"Carro: {carro} - Marca: {marca} - Ano: {ano} - Tipo: {tipo} - Cor: {cor} - valor {valor}")
-                    
-                    escolha_carro = input('Escolha o carro desejado: ').strip()
-                    os.system('cls')
-
-                    
-                    data_retirada = input('Digite a data de retirada (dd/mm/aaaa): ')
-                    data_devolucao = input('Digite a data de devolução (dd/mm/aaaa): ')
-
-                    dias_aluguel = calcular_dias(data_retirada, data_devolucao)     
-                    
-                    valor_total= dias_aluguel*valor
-
-                    print(f"\nResumo do aluguel:\nCarro: {escolha_carro}\nLocadora: {escolha_locadora}\n"
-                         f"Data de Retirada: {data_retirada}\nData de Devolução: {data_devolucao}\n"
-                         f"Duração: {dias_aluguel} dias\nValor Total: R${valor_total:.2f}")
-                    print("\nObrigado por usar nosso sistema! Esperamos vê-lo novamente em breve.\n")
-
-
-
-                                        
-                    break
+                        print(f"Carro: {carro} - Marca: {marca} - Ano: {ano} - Tipo: {tipo} - Cor: {cor}")
+                        
                       
                           
             case 4:
@@ -861,8 +758,9 @@ print('Obrigado por ultilizar nosso')
     
     
 if __name__ == "__main__":
-
     main()
+    
+print('Obrigado por ultilizar nosso')
     
     
 
