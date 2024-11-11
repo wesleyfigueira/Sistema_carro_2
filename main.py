@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import datetime
 
 
 class cor:
@@ -192,6 +193,10 @@ def listar_clientes():
             print("=" * 50)
 
 
+
+
+
+
 # Função para APAGAR os dados do Administrador   DELETE
 def apagar_adm():
     apagar = input("Digite o nome do Administrador a ser apagado: ").strip()  # Remove espaços em branco
@@ -263,8 +268,6 @@ def listar_administradores():
             print("Dados:")
             print(f"  Nome: {info['nome']}")
             
-
-
 # Função para APAGAR  os dados do arquivo json1   DELETE
 def apagar_usuario():
     apagar = input("Digite o nome do Cliente a ser apagado: ").strip()  # Remove espaços em branco
@@ -317,6 +320,7 @@ def exibir_menu():
     print("6. VOLTAR AO MENU ANTERIOR")
 
 def cadastro_cliente():
+<<<<<<< HEAD
     print('Cadastro de cliente')
     nome_cliente = input('Digite seu nome e sobrenome: ')
     cpf_cliente = input('Digite seu CPF: ')
@@ -344,9 +348,37 @@ def opc_invalida ():
 def encerra_programa ():
     print (cor.VERDE+ 'ENCERRANDO PROGRAMA...')
 
+=======
+    print("Bem-vindo ao sistema de cadastro!\n")
+>>>>>>> 7717b67e16d3b0ed96dfbfe1fb477ab999b153ad
     
     
+    nome_cliente = input("Digite seu nome completo: ").strip()
+    cpf_cliente = input("Digite seu CPF (apenas números): ").strip()
+    nascimento_cliente = input("Digite sua data de nascimento (DD/MM/AAAA): ").strip()
+    numero_cliente = input("Digite seu número para contato: ").strip()
+    cnh_cliente = input("Digite o número de sua CNH (Caso tenha): ").strip()
+    
+ 
+    if nome_cliente in dados_clientes:
+        print(f"O cliente {nome_cliente} já está cadastrado!")
+    else:
+       
+        dados_clientes[nome_cliente] = {
+            'cpf': cpf_cliente,
+            'nascimento': nascimento_cliente,
+            'numero': numero_cliente,
+            'cnh': cnh_cliente
+        }
+        salvar_dados(dados_clientes, 'dados_clientes.json')
+        print(f"\nCadastro realizado com sucesso!\nBem-vindo, {nome_cliente}!")   
 
+def calcular_dias(data_retirada, data_devolucao):
+    formato = "%d/%m/%Y"
+    data_retirada = datetime.strptime(data_retirada, formato)
+    data_devolucao = datetime.strptime(data_devolucao, formato)
+    dias = (data_devolucao - data_retirada).days
+    return dias
 
 
 def main():
@@ -735,8 +767,29 @@ def main():
                         ano = dados.get('ano', 'Ano não disponível')
                         tipo = dados.get('tipo', 'Tipo não disponível')
                         cor = dados.get('cor', 'Cor não disponível')
-                        print(f"Carro: {carro} - Marca: {marca} - Ano: {ano} - Tipo: {tipo} - Cor: {cor}")
-                        
+                        valor= dados.get('valor', 'Valor não disponivel')
+                        print(f"Carro: {carro} - Marca: {marca} - Ano: {ano} - Tipo: {tipo} - Cor: {cor} - valor {valor}")
+                    
+                    escolha_carro = input('Escolha o carro desejado: ').strip()
+                    os.system('cls')
+
+                    
+                    data_retirada = input('Digite a data de retirada (dd/mm/aaaa): ')
+                    data_devolucao = input('Digite a data de devolução (dd/mm/aaaa): ')
+
+                    dias_aluguel = calcular_dias(data_retirada, data_devolucao)     
+                    
+                    valor_total= dias_aluguel*valor
+
+                    print(f"\nResumo do aluguel:\nCarro: {escolha_carro}\nLocadora: {escolha_locadora}\n"
+                         f"Data de Retirada: {data_retirada}\nData de Devolução: {data_devolucao}\n"
+                         f"Duração: {dias_aluguel} dias\nValor Total: R${valor_total:.2f}")
+                    print("\nObrigado por usar nosso sistema! Esperamos vê-lo novamente em breve.\n")
+
+
+
+                                        
+                    break
                       
                           
             case 4:
