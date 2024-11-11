@@ -31,5 +31,13 @@
         "ano": "2020",
         "cor": "Preto",
         "valor": 200
+    },
+    "Turbo car": {
+        "modelo": "Uno",
+        "marca": "Fiat",
+        "tipo": "Hatch",
+        "ano": "2014",
+        "cor": "Verde",
+        "valor": 120
     }
 }
