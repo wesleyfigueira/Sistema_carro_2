@@ -36,5 +36,11 @@
         "nascimento": "15/10/2003",
         "numero": "123",
         "cnh": "09"
+    },
+    "Victor Figueira": {
+        "cpf": "12345070480",
+        "nascimento": "11/12",
+        "numero": "/2",
+        "cnh": "00"
     }
 }
