@@ -628,11 +628,15 @@ def main():
             
             case 2:
                 while True:
+<<<<<<< HEAD
+                    locadora_entrada= int(input("|1 - LOCADORA CADASTRADA \n|2 - CADASTRAR LOCADORA \n|3 - VOLTAR AO MENU ANTERIOR:  \n")).lower()
+=======
                     # MENU LOCADORA
                     menuLocadora ()
                     locadora_entrada= int(input('Informe a opção desejada: '))
                     os.system('cls')
                     print ('=' * 50)
+>>>>>>> 8b98355ce0828b38128d9b8aea2ec6c78ad0f7bf
                     
                     # CADASTRAR LOCADORA   
                     if(locadora_entrada==1):
@@ -642,6 +646,7 @@ def main():
                         os.system('cls')
                         if nome_locadora in dados_locadoras:
                            if dados_locadoras[nome_locadora]['senha_locadora']== senha:
+<<<<<<< HEAD
                                 print ('=' * 50)
                                 print (f'\nBem vindo {nome_locadora} !\n')
                                 print ('=' * 50) 
@@ -650,6 +655,17 @@ def main():
                                 menu_carros ()
                                 opc_carros = int(input('\nInforme a opção desejada: '))
                                 print ('=' * 50)
+=======
+<<<<<<< HEAD
+        
+            
+                            opc_carros = int(input('|1- LISTA DE CARROS \n|2- CADASTRAR NOVO CARRO \n|3- VOLTAR AO MENU ANTERIOR \n|4- VOLTAR AO MENU PRINCIPAL \n|5- ECERRAR O PROGRAMA')).lower()
+                            
+=======
+                            print ('=' * 50)
+                            print (f'\nBem vindo {nome_locadora} !\n')
+                            print ('=' * 50)
+>>>>>>> a7e185b5327cc9b7c9e202504d7a4c3fc7490dbf
 
                                 # LISTA DE CARROS DE TODAS AS LOCADORAS
                                 if (opc_carros == 1):
@@ -716,9 +732,62 @@ def main():
                             salvar_locadora(dados_locadoras, 'dados_locadora.json')
                             print (f'{nome_locadora} CADASTRADA COM SUCESSO!')
 
+<<<<<<< HEAD
                         # LISTA DAS LOCADORAS  
                         elif(locadora_entrada == 3):
                             listar_locadora ()
+=======
+                            # LISTA DE CARROS DE TODAS AS LOCADORAS
+>>>>>>> 8b98355ce0828b38128d9b8aea2ec6c78ad0f7bf
+                            if (opc_carros == 1):
+                                lista_carros ()
+
+                            # CADASTRAMENTO DE CARROS
+                            elif (opc_carros == 2):
+                                locadora_carro = input ('Informe a locadora proprietária: ')
+                                modelo = input ('Informe o modelo do carro: ')
+                                marca = input ('Informe a marca: ')
+                                tipo = input ('Informe o tipo (SUV, SEDAN, HATCH): ')
+                                ano = input ('Informe o ano do carro: ')
+                                cor = input ('Informe a cor do carro: ')
+                                valor = int(input('Informe o valor da diaria: '))
+
+
+                                dados_carros[locadora_carro]={
+                                    "modelo": modelo,
+                                    "marca": marca,
+                                    "tipo": tipo,
+                                    "ano": ano,
+                                    "cor": cor,
+                                    "valor": valor
+                                }
+                                os.system('cls')
+                                salvar_carros(dados_carros, 'dados_carros.json')
+                                print(f'{modelo} CADASTRADO COM SUCESSO!') 
+
+                            # EXCLUIR/ DELETAR CARROS   
+                            elif (opc_carros == 3):
+                                print ('em construção')
+
+                            # VOLTAR AO MENU LOCADORA
+                            elif (opc_carros == 4):
+                                menu_locadora ()
+
+                            # VOLTA AO MENU PRINCIPAL
+                            elif (opc_carros == 5):
+                                menuPrincipal()
+
+                            # ENCERRAR PROGRAMA    
+                            elif (opc_carros == 6):
+                                print ('Programa encerrado ...')
+                                break 
+
+                            # MENSAGEM DE OPÇÃO INVALIDA 
+                            else:
+                                print(cor.VERMELHO+ "SENHA OU USUARIO INCORRETOS")
+                         
+                            
+>>>>>>> a7e185b5327cc9b7c9e202504d7a4c3fc7490dbf
                         
                         # VOLTAR AO MENU PRINCIPAL
                         elif (locadora_entrada == 4):
@@ -811,6 +880,11 @@ print('Obrigado por ultilizar nosso')
     
     
 if __name__ == "__main__":
+<<<<<<< HEAD
     main()
     
 print('Obrigado por ultilizar nosso')
+=======
+    main ()
+    
+>>>>>>> a7e185b5327cc9b7c9e202504d7a4c3fc7490dbf
