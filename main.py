@@ -616,16 +616,11 @@ def main():
             
             case 2:
                 while True:
-<<<<<<< HEAD
-                    locadora_entrada= int(input("|1 - LOCADORA CADASTRADA \n|2 - CADASTRAR LOCADORA \n|3 - VOLTAR AO MENU ANTERIOR:  \n")).lower()
-=======
                     # MENU LOCADORA
                     menuLocadora ()
                     locadora_entrada= int(input('Informe a opção desejada: '))
                     os.system('cls')
                     print ('=' * 50)
->>>>>>> 8b98355ce0828b38128d9b8aea2ec6c78ad0f7bf
-                    
                     # CADASTRAR LOCADORA   
                     if(locadora_entrada==1):
                         
@@ -634,12 +629,12 @@ def main():
                         os.system('cls')
                         if nome_locadora in dados_locadoras:
                            if dados_locadoras[nome_locadora]['senha_locadora']== senha:
-<<<<<<< HEAD
+
         
             
                             opc_carros = int(input('|1- LISTA DE CARROS \n|2- CADASTRAR NOVO CARRO \n|3- VOLTAR AO MENU ANTERIOR \n|4- VOLTAR AO MENU PRINCIPAL \n|5- ECERRAR O PROGRAMA')).lower()
                             
-=======
+
                             print ('=' * 50)
                             print (f'\nBem vindo {nome_locadora} !\n')
                             print ('=' * 50)
@@ -652,7 +647,7 @@ def main():
                             print ('=' * 50)
 
                             # LISTA DE CARROS DE TODAS AS LOCADORAS
->>>>>>> 8b98355ce0828b38128d9b8aea2ec6c78ad0f7bf
+
                             if (opc_carros == 1):
                                 lista_carros ()
 
