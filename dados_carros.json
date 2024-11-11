@@ -1,43 +1,9 @@
 {
-    "Gol": {
-        "marca": "volkswagen",
-        "tipo": "hatch",
-        "ano": "2018",
-        "cor": "preto"
-    },
-    "Tiggo 7": {
-        "marca": "CAOA Chery",
-        "tipo": "SUV",
-        "ano": "2023",
-        "cor": "Azul"
-    },
-    "Versa": {
-        "marca": "Nissan",
-        "tipo": "Sedan",
-        "ano": "2016",
-        "cor": "Preto"
-    },
-    "movida": {
-        "modelo": "Creta",
-        "marca": "Hyundai",
-        "tipo": "SUV",
-        "ano": "2023",
-        "cor": "Prata"
-    },
-    "JS car": {
-        "modelo": "Argo",
-        "marca": "Fiat",
+    "Ford k": {
+        "marca": "Ford",
         "tipo": "Hatch",
-        "ano": "2020",
-        "cor": "Preto",
-        "valor": 200
-    },
-    "Turbo car": {
-        "modelo": "Uno",
-        "marca": "Fiat",
-        "tipo": "Hatch",
-        "ano": "2014",
-        "cor": "Verde",
-        "valor": 120
+        "ano": "2017",
+        "cor": "branco",
+        "valor": 250
     }
 }

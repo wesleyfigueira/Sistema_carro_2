@@ -641,24 +641,21 @@ def main():
                         os.system('cls')
                         if nome_locadora in dados_locadoras:
                            if dados_locadoras[nome_locadora]['senha_locadora']== senha:
-<<<<<<< HEAD
-        
-            
-                            opc_carros = int(input('|1- LISTA DE CARROS \n|2- CADASTRAR NOVO CARRO \n|3- VOLTAR AO MENU ANTERIOR \n|4- VOLTAR AO MENU PRINCIPAL \n|5- ECERRAR O PROGRAMA')).lower()
-                            
 
+                            menu_carros ()
+                            opc_carros = int(input('\nEscolha uma das opções acima: ')) 
                             print ('=' * 50)
                             print (f'\nBem vindo {nome_locadora} !\n')
                             print ('=' * 50)
->>>>>>> a7e185b5327cc9b7c9e202504d7a4c3fc7490dbf
+
 
                             # LISTA DE CARROS DE TODAS AS LOCADORAS
->>>>>>> 8b98355ce0828b38128d9b8aea2ec6c78ad0f7bf
+
                             if (opc_carros == 1):
                                 lista_carros ()
 
                                 # CADASTRAMENTO DE CARROS
-                                elif (opc_carros == 2):
+                            elif (opc_carros == 2):
                                     modelo = input ('Informe o modelo do carro: ')
                                     marca = input ('Informe a marca: ')
                                     tipo = input ('Informe o tipo (SUV, SEDAN, HATCH): ')
@@ -680,24 +677,24 @@ def main():
                                 
 
                                 # EXCLUIR/ DELETAR CARROS   
-                                elif (opc_carros == 3):
+                            elif (opc_carros == 3):
                                     excluir_carros ()
 
                                 # VOLTAR AO MENU LOCADORA
-                                elif (opc_carros == 4):
+                            elif (opc_carros == 4):
                                     menuLocadora ()
                                     
                                 # VOLTA AO MENU PRINCIPAL
-                                elif (opc_carros == 5):
+                            elif (opc_carros == 5):
                                     menuPrincipal ()
 
                                 # ENCERRAR PROGRAMA    
-                                elif (opc_carros == 6):
+                            elif (opc_carros == 6):
                                     encerra_programa ()
                                     return
                                     
-                                else: 
-                                   usuario_ou_senha_incorreto ()
+                            else: 
+                                   usuario_ou_senha_incorreto()
                                    break
                                 
                         elif(locadora_entrada == 2):
@@ -718,13 +715,11 @@ def main():
                             salvar_locadora(dados_locadoras, 'dados_locadora.json')
                             print (f'{nome_locadora} CADASTRADA COM SUCESSO!')
 
-<<<<<<< HEAD
                         # LISTA DAS LOCADORAS  
                         elif(locadora_entrada == 3):
                             listar_locadora ()
-=======
                             # LISTA DE CARROS DE TODAS AS LOCADORAS
->>>>>>> 8b98355ce0828b38128d9b8aea2ec6c78ad0f7bf
+
                             if (opc_carros == 1):
                                 lista_carros ()
 
@@ -757,7 +752,7 @@ def main():
 
                             # VOLTAR AO MENU LOCADORA
                             elif (opc_carros == 4):
-                                menu_locadora ()
+                                menuLocadora ()
 
                             # VOLTA AO MENU PRINCIPAL
                             elif (opc_carros == 5):
@@ -866,11 +861,8 @@ print('Obrigado por ultilizar nosso')
     
     
 if __name__ == "__main__":
-<<<<<<< HEAD
+
     main()
     
-print('Obrigado por ultilizar nosso')
-=======
-    main ()
     
->>>>>>> a7e185b5327cc9b7c9e202504d7a4c3fc7490dbf
+
