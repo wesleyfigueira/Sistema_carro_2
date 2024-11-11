@@ -28,7 +28,7 @@
         "senha": "12345"
     },
     "gabriel": {
-        "nome": "gabriel",
+        "nome": "gabriel guerra",
         "senha": "12345"
     },
     "neymar": {
@@ -42,5 +42,21 @@
     "Teste": {
         "nome": "Teste",
         "senha": "Teste"
+    },
+    "teste 1": {
+        "nome": "teste 1",
+        "senha": "teste 1"
+    },
+    "henrique": {
+        "nome": "henrique luiz",
+        "senha": "12345"
+    },
+    "pedro": {
+        "nome": "pedro",
+        "senha": "1234"
+    },
+    "figu3ir4": {
+        "nome": "112003",
+        "senha": "112003"
     }
 }
