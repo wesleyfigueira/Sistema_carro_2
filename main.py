@@ -1,11 +1,10 @@
 import json
 import os
-<<<<<<< HEAD
+
 
 import datetime
 
-=======
->>>>>>> 83754923fd96aada3beb55feac99273a183dfa3d
+
 
 
 class cor:
@@ -322,8 +321,7 @@ def exibir_menu():
     print("5. LISTAR UM USUÁRIO")
     print("6. VOLTAR AO MENU ANTERIOR")
 
-<<<<<<< HEAD
-=======
+
 def cadastro_cliente():
     print('Cadastro de cliente')
     nome_cliente = input('Digite seu nome e sobrenome: ')
@@ -331,6 +329,8 @@ def cadastro_cliente():
     nascimento_cliente = input('Digite sua data de nascimento: ')
     numero_cliente = input('Digite seu número para contato: ')
     cnh_cliente = input('Digite o número de sua CNH: ')
+
+
 
             # Adicionar novo cliente ao jsom
     dados_clientes[nome_cliente] = {
@@ -355,7 +355,33 @@ def encerra_programa ():
     
     
 
->>>>>>> 83754923fd96aada3beb55feac99273a183dfa3d
+
+
+           
+    dados_clientes[nome_cliente] = {
+            'cpf': cpf_cliente,
+            'nascimento': nascimento_cliente,
+            'numero': numero_cliente,
+            'cnh': cnh_cliente
+
+            
+            }
+         # Salvar os dados no arquivo json
+    salvar_dados(dados_clientes, 'dados_clientes.json')
+    print(f'Cliente {nome_cliente} cadastrado com sucesso!')
+
+def usuario_ou_senha_incorreto ():
+    print (cor.VERMELHO+ "LOGIN OU SENHA INCORRETO!")
+
+def opc_invalida ():
+    print (cor.VERMELHO+ 'OPÇÃO INVALIDA!')
+
+def encerra_programa ():
+    print (cor.VERDE+ 'ENCERRANDO PROGRAMA...')
+
+    
+    
+
 
 
 def cadastro_cliente():
@@ -958,8 +984,6 @@ def main():
                      aluguel_carro(dados_locadoras, dados_carros)
 
             case 4:
-<<<<<<< HEAD
-
 
                     print(cor.VERDE+"ENCERRANDO PROGRAMA...")
                     break
@@ -971,10 +995,10 @@ def main():
                     encerra_programa ()
                     break
 
-=======
-                encerra_programa ()
-                break
->>>>>>> 83754923fd96aada3beb55feac99273a183dfa3d
+
+                    encerra_programa ()
+                    break
+
             
             case __:
                 opc_invalida ()
@@ -987,29 +1011,12 @@ def main():
                         
         
     
-<<<<<<< HEAD
 
 
 
-print('Obrigado por ultilizar nosso')
 
-=======
-print('Obrigado por ultilizar nosso')
->>>>>>> 83754923fd96aada3beb55feac99273a183dfa3d
-    
     
 if __name__ == "__main__":
     main()
-    
-<<<<<<< HEAD
-
-
-
-print('Obrigado por ultilizar nosso')
-
-=======
-print('Obrigado por ultilizar nosso')
->>>>>>> 83754923fd96aada3beb55feac99273a183dfa3d
-    
     
 
