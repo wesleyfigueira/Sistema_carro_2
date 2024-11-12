@@ -11,5 +11,11 @@
         "senha_locadora": "12345",
         "contato_locadora": "81 975668421",
         "endereco_locadora": "Avenida Maria Irene, 1458"
+    },
+    "Turbo car": {
+        "codigo_locadora": "03",
+        "senha_locadora": "12345",
+        "contato_locadora": "81 9568842",
+        "endereco_locadora": "Avenida dos Ramos, 1432"
     }
 }
