@@ -297,7 +297,7 @@ def apagar_usuario():
 # Carregar os dados existentes 
 dados_clientes = carregar_dados('dados_clientes.json')
 dados_adm = carregar_dados('dados_administradores.json')
-dados_locadoras = carregar_dados('dados_locadora.json')
+dados_locadora = carregar_dados('dados_locadora.json')
 dados_carros = carregar_dados('dados_carros.json')
 
 
@@ -322,6 +322,8 @@ def exibir_menu():
     print("6. VOLTAR AO MENU ANTERIOR")
 
 
+
+
 def cadastro_cliente():
     print('Cadastro de cliente')
     nome_cliente = input('Digite seu nome e sobrenome: ')
@@ -354,71 +356,6 @@ def encerra_programa ():
 
     
     
-
-
-
-           
-    dados_clientes[nome_cliente] = {
-            'cpf': cpf_cliente,
-            'nascimento': nascimento_cliente,
-            'numero': numero_cliente,
-            'cnh': cnh_cliente
-
-            
-            }
-         # Salvar os dados no arquivo json
-    salvar_dados(dados_clientes, 'dados_clientes.json')
-    print(f'Cliente {nome_cliente} cadastrado com sucesso!')
-
-def usuario_ou_senha_incorreto ():
-    print (cor.VERMELHO+ "LOGIN OU SENHA INCORRETO!")
-
-def opc_invalida ():
-    print (cor.VERMELHO+ 'OPÇÃO INVALIDA!')
-
-def encerra_programa ():
-    print (cor.VERDE+ 'ENCERRANDO PROGRAMA...')
-
-    
-    
-
-
-
-def cadastro_cliente():
-    print('Cadastro de cliente')
-    nome_cliente = input('Digite seu nome e sobrenome: ')
-    cpf_cliente = input('Digite seu CPF: ')
-    nascimento_cliente = input('Digite sua data de nascimento: ')
-    numero_cliente = input('Digite seu número para contato: ')
-    cnh_cliente = input('Digite o número de sua CNH: ')
-
-            # Adicionar novo cliente ao jsom
-    dados_clientes[nome_cliente] = {
-        'cpf': cpf_cliente,
-        'nascimento': nascimento_cliente,
-        'numero': numero_cliente,
-        'cnh': cnh_cliente
-            }
-         # Salvar os dados no arquivo json
-    salvar_dados(dados_clientes, 'dados_clientes.json')
-    print(f'Cliente {nome_cliente} cadastrado com sucesso!')
-
-def usuario_ou_senha_incorreto ():
-    print (cor.VERMELHO+ "LOGIN OU SENHA INCORRETO!")
-
-def opc_invalida ():
-    print (cor.VERMELHO+ 'OPÇÃO INVALIDA!')
-
-def encerra_programa ():
-    print (cor.VERDE+ 'ENCERRANDO PROGRAMA...')
-
-    
-    
-
-
-
-
-
 def calcular_dias(data_retirada, data_devolucao):
     formato = "%d/%m/%Y"
     data_retirada =  datetime.strptime(data_retirada, formato)
@@ -427,60 +364,15 @@ def calcular_dias(data_retirada, data_devolucao):
     return dias
 
 
-def cadastro_cliente():
-
-    print("Bem-vindo ao sistema de cadastro!\n")
-    nome = input("Digite seu nome completo: ").strip()
-    cpf = input("Digite seu CPF (apenas números): ").strip()
-    dados_clientes[nome] = {
-        'cpf': cpf,
-    }
-    print(f"\nCadastro realizado com sucesso!\nBem-vindo, {nome}!")
-
-    print('Cadastro de cliente')
-    nome_cliente = input('Digite seu nome e sobrenome: ')
-    cpf_cliente = input('Digite seu CPF: ')
-    nascimento_cliente = input('Digite sua data de nascimento: ')
-    numero_cliente = input('Digite seu número para contato: ')
-    cnh_cliente = input('Digite o número de sua CNH: ')
-
-            # Adicionar novo cliente ao jsom
-    dados_clientes[nome_cliente] = {
-        'cpf': cpf_cliente,
-        'nascimento': nascimento_cliente,
-        'numero': numero_cliente,
-        'cnh': cnh_cliente
-            }
-         # Salvar os dados no arquivo json
-    salvar_dados(dados_clientes, 'dados_clientes.json')
-    print(f'Cliente {nome_cliente} cadastrado com sucesso!')
-
-def usuario_ou_senha_incorreto ():
-    print (cor.VERMELHO+ "LOGIN OU SENHA INCORRETO!")
-
-def opc_invalida ():
-    print (cor.VERMELHO+ 'OPÇÃO INVALIDA!')
-
-def encerra_programa ():
-    print (cor.VERDE+ 'ENCERRANDO PROGRAMA...')
-
-    
-    
 
 
-
-
-
-
-
-
-def aluguel_carro(dados_locadoras, dados_carros):
+def aluguel_carro(dados_locadora, dados_carros):
     
     
     os.system('cls')  
     
    
-    for locadora, dados in dados_locadoras.items():
+    for locadora, dados in dados_locadora.items():
         endereco_locadora = dados.get('endereco_locadora', 'Endereço não disponível')
         contato_locadora = dados.get('contato_locadora', 'Contato não disponível')
         print(f"Locadora: {locadora} - Endereço: {endereco_locadora} - Contato: {contato_locadora}")
@@ -490,7 +382,7 @@ def aluguel_carro(dados_locadoras, dados_carros):
     os.system('cls')  # Limpa a tela
 
    
-    if escolha_locadora not in dados_locadoras:
+    if escolha_locadora not in dados_locadora:
         print("Locadora não encontrada. Retornando ao menu principal.")
         return
 
@@ -535,53 +427,7 @@ def aluguel_carro(dados_locadoras, dados_carros):
     print("\nObrigado por usar nosso sistema! Esperamos vê-lo novamente em breve.\n")
 
 
-
-def menu_cliente_opcoes(nome_cliente):
-    try:
-        print("1 - Atualizar informações\n2 - Aluguel de Carros")
-        decisao = int(input("Digite a opção desejada: "))
-        os.system('cls' if os.name == 'nt' else 'clear')
-        
-        if decisao == 1:
-            atualizar_clientes(nome_cliente)
-        elif decisao == 2:
-            aluguel_carro()
-        else:
-            print("Opção inválida. Tente novamente.")
-    except ValueError:
-        print("Entrada inválida. Por favor, insira um número válido.")
-
-
-
-def verificar_cliente():
-    verificação_cliente = input("Você já é um cliente cadastrado? (s/n) ").lower()
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-    if verificação_cliente == "s":
-        nome_cliente = input("Digite seu nome completo: ").strip().lower()
-        os.system('cls' if os.name == 'nt' else 'clear')
-
-        cliente_encontrado = False
-        for cliente in dados_clientes:
-            if nome_cliente == cliente.lower():
-                nome_cliente = cliente  # Atualiza para o nome correto no dicionário
-                cliente_encontrado = True
-                break
-
-        if cliente_encontrado:
-            print(f"Bem-vindo de volta, {nome_cliente}!\n")
-            cpf_cliente = dados_clientes[nome_cliente]['cpf']
-            print(f"Seu CPF: {cpf_cliente}\n")
-            menu_cliente_opcoes(nome_cliente)
-        else:
-            print("Cliente não encontrado.")
-            cadastro_cliente()
-            print("Agora você pode fazer o aluguel de carros.")
-            aluguel_carro()
-    else:
-        cadastro_cliente()
-        print("Agora você pode fazer o aluguel de carros.")
-        aluguel_carro()   
+   
 
 def main():
 
@@ -940,48 +786,62 @@ def main():
                 verificação_cliente = input('Você já é um cliente cadastrado? (s/n) ').lower()
                 os.system('cls' if os.name == 'nt' else 'clear')
                 if verificação_cliente == "s":
-        
-                    nome_cliente = input("Digite seu nome completo: ").strip().lower()
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    cliente_encontrado = False
-                    for cliente in dados_clientes:
-                         if nome_cliente == cliente.lower():  # Verifica se o cliente existe (ignora maiúsculas/minúsculas)
-                                  nome_cliente = cliente  # Corrige para o nome original armazenado no dicionário
-                                  cliente_encontrado = True
-                                  break
-                         
-                    if cliente_encontrado:
-                          print(f"Bem-vindo de volta, {nome_cliente}!\n")
-                          cpf_cliente = dados_clientes[nome_cliente]['cpf']
-                          print(f"Seu CPF: {cpf_cliente}\n")
-                          try:
-                                 print("1- Atualizar informações\n2- Aluguel de Carros")
-                                 decisao_03 = int(input("Digite a opção desejada: "))
-                                 os.system('cls' if os.name == 'nt' else 'clear')
-                                 if decisao_03 == 1:
-                                          atualizar_clientes()  # Função para atualizar as informações do cliente
-                                 elif decisao_03 == 2:
-                    # Verifica se há locadoras e carros disponíveis
-                                     if dados_locadoras and dados_carros:
-                                      aluguel_carro(dados_locadoras, dados_carros)  # Chama a função de aluguel de carros
+                   nome_cliente=input("Digite seu nome completo: ").strip().lower()  
 
-                                     else:
-                                            print("Nenhuma locadora ou carro disponível no momento.")
-                                 else:
-                                     print("Opção inválida, tente novamente.")
-                          except ValueError:
-                                           print("Entrada inválida, por favor insira uma opção válida.")
+                   try:
+                      with open('dados_clientes.json', 'r') as arquivo_clientes: 
+                       dados_clientes = json.load(arquivo_clientes)
 
-                    else:
-                        print("Cliente não encontrado.")
-                        cadastro_cliente()  # Função para cadastrar novo cliente
-                        print("Agora você pode fazer o aluguel de carros.")
-                        aluguel_carro(dados_locadoras, dados_carros)  # Chama a função de aluguel
+                      cliente_encontrado = False
+                      for cliente in dados_clientes:
+                          if nome_cliente == cliente.lower(): 
+                            nome_cliente = cliente 
+                            cliente_encontrado = True
+                            break
+                      if cliente_encontrado :
+                        print(f"Bem-vindo de volta, {nome_cliente}!\n")
+                        cpf_cliente = dados_clientes[nome_cliente]['cpf']
+                        print(f"Seu CPF: {cpf_cliente}\n")
+                        print("1- Atualizar informações\n2- Aluguel de Carros")
+
+                        try:
+                            decisao_03 = int(input("Digite a opção desejada: "))
+
+
+                            if decisao_03 == 1:
+                                atualizar_clientes()  
+                            elif decisao_03 ==2 :
+                                with open('dados_locadora.json', 'r') as arquivo_locadora:
+                                    dados_locadora = json.load(arquivo_locadora)
+                                with open('dados_carros.json', 'r') as arquivo_carros:
+                                      dados_carros = json.load(arquivo_carros)
+                                if dados_locadora and dados_carros:
+                                    aluguel_carro(dados_locadora, dados_carros)
+                                else :
+                                    print("Nenhuma locadora ou carro disponível no momento.")
+                            else:
+                                 print("Opção inválida, tente novamente.")
+                        except ValueError:
+                            print("Entrada inválida, por favor insira uma opção válida.")    
+                      else:
+                        print("Cliente não encontrado.")   
+                        cadastro_cliente()
+                        print("Agora você pode fazer o aluguel de carros.")   
+                        aluguel_carro(dados_locadora, dados_carros)    
+                   except FileNotFoundError:  
+                       print("Erro: Arquivo de clientes não encontrado.")   
                 else:
-      
-                     cadastro_cliente()
-                     print("Agora você pode fazer o aluguel de carros.")
-                     aluguel_carro(dados_locadoras, dados_carros)
+                    cadastro_cliente()
+                    print("Agora você pode fazer o aluguel de carros.")
+                    aluguel_carro(dados_locadora, dados_carros)
+
+
+
+                      
+
+                      
+                      
+        
 
             case 4:
 
@@ -1005,17 +865,7 @@ def main():
                 
                         
 
-                        
                     
-                        
-                        
-        
-    
-
-
-
-
-    
 if __name__ == "__main__":
     main()
     
